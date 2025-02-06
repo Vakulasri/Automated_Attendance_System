@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATTENDANCE LOG</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #2E8B57; /* Subtle forest green for the main title */
+            margin-top: 30px;
+        }
+
+        table {
+            width: 80%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2E8B57; /* Light green */
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Styling for the 'Not exited yet' text */
+        td {
+            color: #333;
+        }
+
+        td:empty {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <h1>ATTENDANCE LOG</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Time</th>
+                <th>Exit Time</th>
+                <th>Detection Time</th>  <!-- New column for detection time -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+                <tr>
+                    <td>{{ record.name }}</td>
+                    <td>{{ record.time }}</td>
+                    <td>{{ record.exit_time or 'Not exited yet' }}</td>
+                    <td>{{ record.detection_time }}</td>  <!-- Display detection time -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

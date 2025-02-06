@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATTENDANCE SYSTEM</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #2E8B57; /* Subtle forest green for the main title */
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        /* Webcam Feed */
+        .webcam-feed {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Image styles */
+        img {
+            border: 4px solid black; /* Black border for the webcam feed */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Attendance Log */
+        .attendance-log {
+            margin-top: 30px;
+        }
+
+        /* Button styles */
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: #5F9F5F; /* Soft, subtle green */
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        a:hover {
+            background-color: #4C8C4A; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>ATTENDANCE SYSTEM</h1>
+
+    <h2>WEBCAM FEED</h2>
+    <div class="webcam-feed">
+        <img src="{{ url_for('video') }}" width="640" height="480">
+    </div>
+
+    <h2>ATTENDANCE LOG</h2>
+    <div class="attendance-log">
+        <a href="{{ url_for('attendance') }}">View Attendance</a>
+    </div>
+</body>
+</html>
